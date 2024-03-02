@@ -1,0 +1,18 @@
+@import url(./reset.css);
+@font-face {
+     font-family: laleZar;
+     src: url(./fonts/vazir/Vazir-Medium.ttf);
+}
+
+:root{
+     --white:#ffffff;
+     --white-50:#f0f0f0;
+     --blue:#471AAA;
+}
+
+body{
+     background-color: var(--white-50);
+}
+* , body ,html{
+     font-family: laleZar;
+}
