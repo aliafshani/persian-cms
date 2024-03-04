@@ -1,9 +1,10 @@
 import React from 'react'
+import NotFind from '../../404/NotFind'
 
 function Product() {
   return (
     <div>
-      mahsool
+      <NotFind errorTitle="کاربری"/>
     </div>
   )
 }

@@ -1,0 +1,9 @@
+.error{
+     display: flex;
+     justify-content: start;
+     align-items: center;
+     flex-direction: column;
+}
+.error404{
+     width: 200px;
+}
