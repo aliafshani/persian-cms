@@ -2,6 +2,7 @@
      display: flex;
      justify-content: space-between;
      align-items: center;
+     margin-bottom: 80px;
 }
 .right-header-section{
      display: flex;
@@ -18,7 +19,7 @@
 }
 .right-header-sub{
      margin-top: 10px;
-     color: rgb(101, 101, 101);
+     color:#858585;
 }
 .left-header-section{
      display: flex;
@@ -26,6 +27,7 @@
      justify-content: space-evenly;
 }
 .search-box{
+     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
      border-radius: 10px;
      display: flex;
      align-items: center;
@@ -47,6 +49,7 @@
      background-color: var(--blue)!important;
 }
 .header-left-buttons{
+     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
      color: var(--white);
      border: none;
      background-color: var(--blue);

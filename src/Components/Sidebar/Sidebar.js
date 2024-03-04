@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import "./Sidebar.css"
 import { IoHomeOutline } from "react-icons/io5";
 import { MdOutlineProductionQuantityLimits } from "react-icons/md";
@@ -18,27 +19,27 @@ function Sidebar() {
                <ul className='sidebar-links'>
                     <li className='sidebar-link-li active'>
                          <p><IoHomeOutline /></p>
-                         <a href='#'>صفحه اصلی</a>
+                         <Link to="/products">صفحه اصلی</Link>
                     </li>
                     <li className='sidebar-link-li '>
                          <p><MdOutlineProductionQuantityLimits/></p>
-                         <a href='#'>محصولات</a>
+                         <Link to="/products">محصولات</Link>
                     </li>
                     <li className='sidebar-link-li'>
                          <p><BiCommentDetail/></p>
-                         <a href='#'>کامنت ها</a>
+                         <Link to={"comments"}>کامنت ها</Link>
                     </li>
                     <li className='sidebar-link-li'>
                          <p><FaRegUserCircle/></p>
-                         <a href='#'>کاربران</a>
+                         <Link to={"users"}>کاربران</Link>
                     </li>
                     <li className='sidebar-link-li'>
                          <p><BsBagCheck/></p>
-                         <a href='#'>سفارشات</a>
+                         <Link to={"orders"}>سفارشات</Link>
                     </li>
                     <li className='sidebar-link-li'>
                          <p><BsCurrencyDollar/></p>
-                         <a href='#'>تخفیف ها</a>
+                         <Link to={"offers"}>تخفیف ها</Link>
                     </li>
                </ul>
           </div>
