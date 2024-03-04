@@ -7,12 +7,6 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { BsBagCheck } from "react-icons/bs";
 import { BsCurrencyDollar } from "react-icons/bs";
 
-
-
-
-
-
-
 function Sidebar() {
      return (
           <div className='sidebar'>
