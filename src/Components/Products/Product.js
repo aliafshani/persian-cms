@@ -1,12 +1,15 @@
 import React from 'react'
 import NotFind from '../../404/NotFind'
 import AddNewProduct from '../AddNewProduct/AddNewProduct'
+import ProductTable from '../ProductTable/ProductTable'
 
 function Product() {
   return (
     <div>
-      <NotFind errorTitle="کاربری"/>
-      <AddNewProduct/>
+      <AddNewProduct />
+      <ProductTable />
+      <NotFind errorTitle="کاربری" />
+
     </div>
   )
 }
