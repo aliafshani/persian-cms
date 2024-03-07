@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import reportWebVitals from './reportWebVitals';
 import "./custome.css"
 
-const root = ReactDOM.createRoot(document.querySelector("body"));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
