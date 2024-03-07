@@ -10,7 +10,7 @@ function Product() {
       <AddNewProduct />
       <ProductTable />
       <NotFind errorTitle="کاربری" />
-      <DeleteModal />
+      
     </div>
   )
 }
