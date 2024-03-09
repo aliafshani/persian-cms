@@ -1,28 +1,10 @@
-.model-parent {
-     top: 0;
-     position: fixed;
-     z-index: 1;
-     width: 100%;
-     height: 100vh;
-     background-color: rgba(0, 0, 0, .6) !important;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     opacity: 0;
-     visibility: hidden;
-     transition: .4s;
-}
-.model-parent.active{
-     opacity: 1;
-     visibility: visible;
-}
-
 .delete-modal{
      width: 350px;
      height: 170px;
      background-color:var(--white);
      border-radius: 10px;
      padding: 20px;
+     filter: blur(0px);
      outline: none;
 }
 .delete-modal-btns{

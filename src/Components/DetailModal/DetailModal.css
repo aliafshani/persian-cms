@@ -1,0 +1,24 @@
+.detail-modal-body{
+     border-radius: 10px;
+     padding: 50px;
+     width: 60%;
+     height: 30vh;
+     background-color: var(--white);
+}
+.detail-modal-title{
+     font-size: 25px;
+     margin-bottom: 20px;
+}
+.detail-modal-price{
+     margin-bottom: 15px;
+
+}
+.skip-modal-btn{
+     outline: none;
+     border: none;
+     margin-top: 20px;
+     background-color: var(--blue);
+     color: var(--white);
+     border-radius: 4px;
+     padding: 10px 15px;
+}

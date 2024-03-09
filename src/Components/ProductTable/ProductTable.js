@@ -1,17 +1,20 @@
 import React, { useState } from 'react'
 import "./ProductTable.css"
 import DeleteModal from '../DeleteModal/DeleteModal'
+import DetailModal from '../DetailModal/DetailModal'
 
 export default function ProductTable() {
   const [isShowModal, setIsShowModal] = useState(false)
+  const [isDetailModalShow, setIsDetailModalShow] = useState(false)
 
   const submitDeleteModal = () => {
-    console.log("cancel shod");
     setIsShowModal(false)
   }
   const cancelDeleteModal = () => {
-    console.log("taiid shod");
     setIsShowModal(false)
+  }
+  const skipDetailModal = ()=>{
+    setIsDetailModalShow(false)
   }
 
   return (
@@ -31,7 +34,7 @@ export default function ProductTable() {
           <td>12000 $</td>
           <td>26</td>
           <td>
-            <button className='product-table-btn'>deatail</button>
+            <button className='product-table-btn' onClick={() => setIsDetailModalShow(true)}>deatail</button>
             <button className='product-table-btn' onClick={() => setIsShowModal(true)}>delete</button>
             <button className='product-table-btn'>edit</button>
 
@@ -44,6 +47,14 @@ export default function ProductTable() {
             submiter={submitDeleteModal}
             cancel={cancelDeleteModal} /> :
           null
+      }
+      {
+        isDetailModalShow
+          ? <DetailModal 
+            submiter={skipDetailModal}
+            
+            />
+          : null
       }
     </>
 
