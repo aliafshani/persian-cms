@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { Children, useState } from 'react'
 import "./ProductTable.css"
 import DeleteModal from '../DeleteModal/DeleteModal'
 import DetailModal from '../DetailModal/DetailModal'
+import EditModal from '../EditModal/EditModal'
 
 export default function ProductTable() {
   const [isShowModal, setIsShowModal] = useState(false)
   const [isDetailModalShow, setIsDetailModalShow] = useState(false)
+  const [isEditModal, setIsEditModal] = useState(false)
 
   const submitDeleteModal = () => {
     setIsShowModal(false)
@@ -13,8 +15,11 @@ export default function ProductTable() {
   const cancelDeleteModal = () => {
     setIsShowModal(false)
   }
-  const skipDetailModal = ()=>{
+  const skipDetailModal = () => {
     setIsDetailModalShow(false)
+  }
+  const updateProductInfos = (event) => {
+    event.preventDefault();
   }
 
   return (
@@ -34,26 +39,34 @@ export default function ProductTable() {
           <td>12000 $</td>
           <td>26</td>
           <td>
-            <button className='product-table-btn' onClick={() => setIsDetailModalShow(true)}>deatail</button>
-            <button className='product-table-btn' onClick={() => setIsShowModal(true)}>delete</button>
-            <button className='product-table-btn'>edit</button>
+            <button className='product-table-btn' onClick={() => setIsDetailModalShow(true)}>جزییات بیشتر</button>
+            <button className='product-table-btn' onClick={() => setIsShowModal(true)}>حذف</button>
+            <button className='product-table-btn' onClick={() => setIsEditModal(true)}>ویرایش</button>
 
           </td>
         </tr>
       </table>
       {
-        isShowModal ?
-          <DeleteModal
+        isShowModal
+          ? <DeleteModal
             submiter={submitDeleteModal}
-            cancel={cancelDeleteModal} /> :
-          null
+            cancel={cancelDeleteModal} />
+          : null
       }
       {
         isDetailModalShow
-          ? <DetailModal 
-            submiter={skipDetailModal}
-            
-            />
+          ? <DetailModal
+            submiter={skipDetailModal} />
+          : null
+      }
+
+      {
+        isEditModal
+          ? <EditModal
+            onClose={() => setIsEditModal(false)}
+            onSubmit={updateProductInfos}>
+
+          </EditModal>
           : null
       }
     </>

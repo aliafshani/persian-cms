@@ -4,7 +4,7 @@ import DeleteModal from '../DeleteModal/DeleteModal'
 function Comment() {
   return (
     <>
-      <DeleteModal/>
+      
     </>
   )
 }
