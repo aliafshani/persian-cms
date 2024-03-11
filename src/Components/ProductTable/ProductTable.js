@@ -1,14 +1,22 @@
-import React, { Children, useState } from 'react'
+import React, { Children, useEffect, useState } from 'react'
 import "./ProductTable.css"
 import { MdOutlineEdit } from "react-icons/md";
 import DeleteModal from '../DeleteModal/DeleteModal'
 import DetailModal from '../DetailModal/DetailModal'
 import EditModal from '../EditModal/EditModal'
+import NotFind from '../../404/NotFind';
 
 export default function ProductTable() {
   const [isShowModal, setIsShowModal] = useState(false)
   const [isDetailModalShow, setIsDetailModalShow] = useState(false)
   const [isEditModal, setIsEditModal] = useState(false)
+  const [allProducts, setAllProducts] = useState([])
+
+  useEffect(() => {
+    fetch("http://localhost:8000/api/products")
+      .then((res) => res.json())
+      .then((data) =>setAllProducts(data))
+  }, [])
 
   const submitDeleteModal = () => {
     setIsShowModal(false)
@@ -25,28 +33,40 @@ export default function ProductTable() {
 
   return (
     <>
-      <table className='product-table'>
-        <tr className='product-table-heading-tr'>
-          <th>photo</th>
-          <th>name</th>
-          <th>price</th>
-          <th>mojodi</th>
-        </tr>
-        <tr className='product-table-tr'>
-          <td>
-            <img className='product-table-img' src='./Images/iphone15.webp' alt='image product' />
-          </td>
-          <td>iphone15</td>
-          <td>12000 $</td>
-          <td>26</td>
-          <td>
-            <button className='product-table-btn' onClick={() => setIsDetailModalShow(true)}>جزییات بیشتر</button>
-            <button className='product-table-btn' onClick={() => setIsShowModal(true)}>حذف</button>
-            <button className='product-table-btn' onClick={() => setIsEditModal(true)}>ویرایش</button>
+      {
+        allProducts.length === 0
+          ? <NotFind errorTitle="کاربری" />
+          : (
+            <table className='product-table'>
+              <tr className='product-table-heading-tr'>
+                <th>photo</th>
+                <th>name</th>
+                <th>price</th>
+                <th>mojodi</th>
+              </tr>
+              {
+                allProducts.map(item => (
+                  <tr className='product-table-tr'>
+                    <td>
+                      <img className='product-table-img' src={item.img} alt='image product' />
+                    </td>
+                    <td>{item.title}</td>
+                    <td>{item.price} $</td>
+                    <td>{item.count}</td>
+                    <td>
+                      <button className='product-table-btn' onClick={() => setIsDetailModalShow(true)}>جزییات بیشتر</button>
+                      <button className='product-table-btn' onClick={() => setIsShowModal(true)}>حذف</button>
+                      <button className='product-table-btn' onClick={() => setIsEditModal(true)}>ویرایش</button>
 
-          </td>
-        </tr>
-      </table>
+                    </td>
+                  </tr>
+                ))
+              }
+
+            </table>
+          )
+      }
+
       {
         isShowModal
           ? <DeleteModal
@@ -69,39 +89,39 @@ export default function ProductTable() {
             <div>
               <div className='input-box'>
                 <span>
-                  <MdOutlineEdit/>
+                  <MdOutlineEdit />
                 </span>
-                <input 
-                className='data-input'
-                placeholder='عنوان جدید را وارد کنید.' />
-                
+                <input
+                  className='data-input'
+                  placeholder='عنوان جدید را وارد کنید.' />
+
               </div>
               <div className='input-box'>
                 <span>
-                  <MdOutlineEdit/>
+                  <MdOutlineEdit />
                 </span>
-                <input 
-                className='data-input'
-                placeholder='عنوان جدید را وارد کنید.' />
-                
+                <input
+                  className='data-input'
+                  placeholder='عنوان جدید را وارد کنید.' />
+
               </div>
               <div className='input-box'>
                 <span>
-                  <MdOutlineEdit/>
+                  <MdOutlineEdit />
                 </span>
-                <input 
-                className='data-input'
-                placeholder='عنوان جدید را وارد کنید.' />
-                
+                <input
+                  className='data-input'
+                  placeholder='عنوان جدید را وارد کنید.' />
+
               </div>
               <div className='input-box'>
                 <span>
-                  <MdOutlineEdit/>
+                  <MdOutlineEdit />
                 </span>
-                <input 
-                className='data-input'
-                placeholder='عنوان جدید را وارد کنید.' />
-                
+                <input
+                  className='data-input'
+                  placeholder='عنوان جدید را وارد کنید.' />
+
               </div>
             </div>
 

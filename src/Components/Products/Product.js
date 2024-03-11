@@ -9,8 +9,6 @@ function Product() {
     <div>
       <AddNewProduct />
       <ProductTable />
-      <NotFind errorTitle="کاربری" />
-      
     </div>
   )
 }

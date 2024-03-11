@@ -7,7 +7,7 @@ function Header() {
      return (
           <div className='header'>
                <div className='right-header-section'>
-                    <img className='right-header-section-profile-image' src="./Images/ali-afhsni.jpg" alt='admin-profile' />
+                    <img className='right-header-section-profile-image' src="./img/ali-afhsni.jpg" alt='admin-profile' />
                     <div>
                          <p className='right-header-name'>علیرضا افشانی</p>
                          <p className='right-header-sub'>   برنامه نویس فرانت اند</p>
