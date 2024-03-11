@@ -1,5 +1,6 @@
 import React, { Children, useState } from 'react'
 import "./ProductTable.css"
+import { MdOutlineEdit } from "react-icons/md";
 import DeleteModal from '../DeleteModal/DeleteModal'
 import DetailModal from '../DetailModal/DetailModal'
 import EditModal from '../EditModal/EditModal'
@@ -65,6 +66,45 @@ export default function ProductTable() {
           ? <EditModal
             onClose={() => setIsEditModal(false)}
             onSubmit={updateProductInfos}>
+            <div>
+              <div className='input-box'>
+                <span>
+                  <MdOutlineEdit/>
+                </span>
+                <input 
+                className='data-input'
+                placeholder='عنوان جدید را وارد کنید.' />
+                
+              </div>
+              <div className='input-box'>
+                <span>
+                  <MdOutlineEdit/>
+                </span>
+                <input 
+                className='data-input'
+                placeholder='عنوان جدید را وارد کنید.' />
+                
+              </div>
+              <div className='input-box'>
+                <span>
+                  <MdOutlineEdit/>
+                </span>
+                <input 
+                className='data-input'
+                placeholder='عنوان جدید را وارد کنید.' />
+                
+              </div>
+              <div className='input-box'>
+                <span>
+                  <MdOutlineEdit/>
+                </span>
+                <input 
+                className='data-input'
+                placeholder='عنوان جدید را وارد کنید.' />
+                
+              </div>
+            </div>
+
 
           </EditModal>
           : null
