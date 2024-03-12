@@ -11,7 +11,7 @@ export default function ProductTable() {
   const [isDetailModalShow, setIsDetailModalShow] = useState(false)
   const [isEditModal, setIsEditModal] = useState(false)
   const [allProducts, setAllProducts] = useState([])
-  // const [productDetail, setProductDetail] = useState([])
+  const [productDetail, setProductDetail] = useState([])
   const [productId, setProductId] = useState(0)
 
   const getAllProduct = () => {
