@@ -11,15 +11,31 @@ export default function ProductTable() {
   const [isDetailModalShow, setIsDetailModalShow] = useState(false)
   const [isEditModal, setIsEditModal] = useState(false)
   const [allProducts, setAllProducts] = useState([])
+  // const [productDetail, setProductDetail] = useState([])
+  const [productId, setProductId] = useState(0)
 
-  useEffect(() => {
+  const getAllProduct = () => {
     fetch("http://localhost:8000/api/products")
       .then((res) => res.json())
-      .then((data) =>setAllProducts(data))
+      .then((data) => setAllProducts(data))
+  }
+
+  useEffect(() => {
+    getAllProduct()
   }, [])
 
-  const submitDeleteModal = () => {
-    setIsShowModal(false)
+
+  function submitDeleteModal() {
+    console.log(productId);
+    fetch(`http://localhost:8000/api/products/${productId}`, {
+      method: "Delete"
+    }).then(res => res.json())
+      .then(result => {
+        getAllProduct()
+        setIsShowModal(false)
+
+      })
+
   }
   const cancelDeleteModal = () => {
     setIsShowModal(false)
@@ -54,8 +70,18 @@ export default function ProductTable() {
                     <td>{item.price} $</td>
                     <td>{item.count}</td>
                     <td>
-                      <button className='product-table-btn' onClick={() => setIsDetailModalShow(true)}>جزییات بیشتر</button>
-                      <button className='product-table-btn' onClick={() => setIsShowModal(true)}>حذف</button>
+                      <button className='product-table-btn' onClick={() => {
+                        setProductDetail(item)
+                        setIsDetailModalShow(true)
+                      }
+                      }>جزییات بیشتر</button>
+
+                      <button className='product-table-btn' onClick={() => {
+                        setIsShowModal(true)
+                        setProductId(item.id)
+                        console.log(item.id);
+                      }}>حذف</button>
+
                       <button className='product-table-btn' onClick={() => setIsEditModal(true)}>ویرایش</button>
 
                     </td>
@@ -66,10 +92,10 @@ export default function ProductTable() {
             </table>
           )
       }
-
       {
         isShowModal
           ? <DeleteModal
+
             submiter={submitDeleteModal}
             cancel={cancelDeleteModal} />
           : null
@@ -77,10 +103,10 @@ export default function ProductTable() {
       {
         isDetailModalShow
           ? <DetailModal
+            detail={productDetail}
             submiter={skipDetailModal} />
           : null
       }
-
       {
         isEditModal
           ? <EditModal
@@ -129,6 +155,10 @@ export default function ProductTable() {
           </EditModal>
           : null
       }
+
+
+
+
     </>
 
   )

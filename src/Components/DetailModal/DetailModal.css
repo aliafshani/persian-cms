@@ -2,7 +2,7 @@
      border-radius: 10px;
      padding: 50px;
      width: 60%;
-     height: 30vh;
+     min-height: 30vh;
      background-color: var(--white);
 }
 .detail-modal-title{
@@ -10,6 +10,7 @@
      margin-bottom: 20px;
 }
 .detail-modal-price{
+     line-height: 28px;
      margin-bottom: 15px;
 
 }
