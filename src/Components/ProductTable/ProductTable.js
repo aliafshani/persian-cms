@@ -57,7 +57,11 @@ export default function ProductTable() {
       title: newname,
       price: newPrice,
       count: newCount,
+
+
       img: newImg,
+
+      
       popularity: newPopularity,
       sale: newSale,
       colors: newColors
