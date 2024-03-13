@@ -14,6 +14,16 @@ export default function ProductTable() {
   const [productDetail, setProductDetail] = useState([])
   const [productId, setProductId] = useState(0)
 
+  const [newname, setNewName] = useState("")
+  const [newPrice, setNewPrice] = useState("")
+  const [newCount, setNewCount] = useState("")
+  const [newImg, setNewImg] = useState("")
+  const [newPopularity, setNewPopularity] = useState("")
+  const [newSale, setNewSale] = useState("")
+  const [newColors, setNewColors] = useState("")
+
+
+
   const getAllProduct = () => {
     fetch("http://localhost:8000/api/products")
       .then((res) => res.json())
@@ -24,9 +34,7 @@ export default function ProductTable() {
     getAllProduct()
   }, [])
 
-
   function submitDeleteModal() {
-    console.log(productId);
     fetch(`http://localhost:8000/api/products/${productId}`, {
       method: "Delete"
     }).then(res => res.json())
@@ -44,7 +52,28 @@ export default function ProductTable() {
     setIsDetailModalShow(false)
   }
   const updateProductInfos = (event) => {
+
+    const newDataProduct = {
+      title: newname,
+      price: newPrice,
+      count: newCount,
+      img: newImg,
+      popularity: newPopularity,
+      sale: newSale,
+      colors: newColors
+    }
+    fetch(`http://localhost:8000/api/products/${productId}`,
+      {
+        method: "put",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newDataProduct)
+      }).then(res => res.json())
+      .then(data => {
+        console.log(data);
+        getAllProduct()
+      })
     event.preventDefault();
+    setIsEditModal(false)
   }
 
   return (
@@ -82,7 +111,18 @@ export default function ProductTable() {
                         console.log(item.id);
                       }}>حذف</button>
 
-                      <button className='product-table-btn' onClick={() => setIsEditModal(true)}>ویرایش</button>
+                      <button className='product-table-btn' onClick={() => {
+                        setIsEditModal(true)
+                        setProductId(item.id)
+                        setNewName(item.title)
+                        setNewPrice(item.price)
+                        setNewColors(item.colors)
+                        setNewCount(item.count)
+                        setNewImg(item.img)
+                        setNewPopularity(item.popularity)
+                        setNewSale(item.sale)
+
+                      }}>ویرایش</button>
 
                     </td>
                   </tr>
@@ -118,6 +158,8 @@ export default function ProductTable() {
                   <MdOutlineEdit />
                 </span>
                 <input
+                  onChange={(event) => setNewName(event.target.value)}
+                  value={newname}
                   className='data-input'
                   placeholder='عنوان جدید را وارد کنید.' />
 
@@ -127,8 +169,10 @@ export default function ProductTable() {
                   <MdOutlineEdit />
                 </span>
                 <input
+                  onChange={(event) => setNewPrice(event.target.value)}
+                  value={newPrice}
                   className='data-input'
-                  placeholder='عنوان جدید را وارد کنید.' />
+                  placeholder='مبلغ محصول را وارد کنید.' />
 
               </div>
               <div className='input-box'>
@@ -136,8 +180,10 @@ export default function ProductTable() {
                   <MdOutlineEdit />
                 </span>
                 <input
+                  onChange={(event) => setNewCount(event.target.value)}
+                  value={newCount}
                   className='data-input'
-                  placeholder='عنوان جدید را وارد کنید.' />
+                  placeholder='موجودی محصول را وارد کنید.' />
 
               </div>
               <div className='input-box'>
@@ -145,10 +191,47 @@ export default function ProductTable() {
                   <MdOutlineEdit />
                 </span>
                 <input
+                  onChange={(event) => setNewImg(event.target.value)}
+                  value={newImg}
                   className='data-input'
-                  placeholder='عنوان جدید را وارد کنید.' />
+                  placeholder='آدرس کاور محصول را وارد کنید.' />
 
               </div>
+              <div className='input-box'>
+                <span>
+
+                  <MdOutlineEdit />
+                </span>
+                <input
+                  onChange={(event) => setNewPopularity(event.target.value)}
+                  value={newPopularity}
+                  className='data-input'
+                  placeholder='میزان محبوبیت محصول را وارد کنید.' />
+
+              </div>
+              <div className='input-box'>
+                <span>
+                  <MdOutlineEdit />
+                </span>
+                <input
+                  onChange={(event) => setNewSale(event.target.value)}
+                  value={newSale}
+                  className='data-input'
+                  placeholder='میزان فروش را وارد کنید.' />
+
+              </div>
+              <div className='input-box'>
+                <span>
+                  <MdOutlineEdit />
+                </span>
+                <input
+                  onChange={(event) => setNewColors(event.target.value)}
+                  value={newColors}
+                  className='data-input'
+                  placeholder='تعداد رنگبندی را وارد کنید.' />
+
+              </div>
+
             </div>
 
 

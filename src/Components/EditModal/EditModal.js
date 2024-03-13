@@ -8,7 +8,7 @@ export default function EditModal({ onClose, onSubmit, children }) {
                {
                     createPortal(
                          <div className='model-parent active'>
-                              <div className='Edit-modal-body'>
+                              <form className='Edit-modal-body'>
                                    <h3 className='Edit-modal-title'>ویرایش اطلاعات</h3>
                                    <div className='Edit-modal-child'>
                                         {children}
@@ -21,7 +21,7 @@ export default function EditModal({ onClose, onSubmit, children }) {
                                         onClick={() => onClose()}
                                         className='Edit-modal-btn close'>بسته شود !</button>
 
-                              </div>
+                              </form>
                          </div>
                          , document.getElementById("modals-parent")
                     )
