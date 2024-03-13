@@ -127,7 +127,7 @@ export default function AddNewProduct() {
                     </div>
                     <button
                          type='submit'
-                         onClick={addNewProduct()}
+                         onClick={(event)=>addNewProduct(event)}
                          className='add-product-btn' >ثبت محصول </button>
                </form>
           </div>
