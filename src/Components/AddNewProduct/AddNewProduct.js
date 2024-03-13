@@ -10,7 +10,7 @@ import { useState } from 'react';
 
 
 
-export default function AddNewProduct() {
+export default function AddNewProduct({getAllProduct}) {
 
 
      const [newname, setNewName] = useState("")
@@ -43,7 +43,14 @@ export default function AddNewProduct() {
               body: JSON.stringify(newProduct)
           }).then(res => res.json())
           .then(result => {
-              console.log(result);
+               getAllProduct()
+               setNewColors("")
+               setNewCount("")
+               setNewImg("")
+               setNewName("")
+               setNewPopularity("")
+               setNewSale("")
+               setNewPrice("")
           })
       }
 

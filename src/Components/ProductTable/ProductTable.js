@@ -6,11 +6,11 @@ import DetailModal from '../DetailModal/DetailModal'
 import EditModal from '../EditModal/EditModal'
 import NotFind from '../../404/NotFind';
 
-export default function ProductTable() {
+export default function ProductTable({getAllProduct,allProducts}) {
   const [isShowModal, setIsShowModal] = useState(false)
   const [isDetailModalShow, setIsDetailModalShow] = useState(false)
   const [isEditModal, setIsEditModal] = useState(false)
-  const [allProducts, setAllProducts] = useState([])
+  
   const [productDetail, setProductDetail] = useState([])
   const [productId, setProductId] = useState(0)
 
@@ -24,11 +24,6 @@ export default function ProductTable() {
 
 
 
-  const getAllProduct = () => {
-    fetch("http://localhost:8000/api/products")
-      .then((res) => res.json())
-      .then((data) => setAllProducts(data))
-  }
 
   useEffect(() => {
     getAllProduct()
@@ -61,7 +56,7 @@ export default function ProductTable() {
 
       img: newImg,
 
-      
+
       popularity: newPopularity,
       sale: newSale,
       colors: newColors
