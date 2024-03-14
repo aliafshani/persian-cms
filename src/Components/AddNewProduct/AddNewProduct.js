@@ -1,5 +1,6 @@
 import React from 'react'
 import "./AddNewProduct.css"
+import "./../DetailModal/DetailModal.css"
 import { PiCurrencyDollar } from "react-icons/pi";
 import { CiImageOn } from "react-icons/ci";
 import { SlWallet } from "react-icons/sl";
