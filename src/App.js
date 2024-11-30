@@ -11,8 +11,8 @@ function App() {
   const route = useRoutes(router)
 
   const [showThem, setShowThem] = useState(false)
-  const [colors, setColors] = useState(["red","blue","gray","green"])
-  const [color, setColor] = useState(null)
+  const [colors, setColors] = useState(["red", "blue", "gray", "green"])
+  const [color, setColor] = useState('blue')
   return (
     <div className="App">
 
@@ -22,7 +22,7 @@ function App() {
         colors,
         color,
         setColor,
-        
+
       }}
       >
         <Sidebar />
@@ -31,7 +31,7 @@ function App() {
           {route}
 
         </div>
-        {showThem ? <ThemModal/> : null}
+        {showThem ? <ThemModal /> : null}
       </data.Provider>
     </div>
   );

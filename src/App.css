@@ -1,8 +1,29 @@
-.App{
+.App {
      position: relative;
 }
-.main{
+
+.main {
      flex: 4;
      padding: 20px;
      padding-right: 280px;
+}
+
+.red {
+     background-color: rgb(238, 45, 45);
+
+}
+
+.blue {
+     background-color: var(--blue);
+
+}
+
+.gray {
+     background-color: gray;
+
+}
+
+.green {
+     background-color: rgb(5, 120, 5);
+
 }

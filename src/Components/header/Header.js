@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./Header.css"
 import { FaRegBell } from "react-icons/fa6";
 import { MdBrightnessMedium } from "react-icons/md";
+import data from '../../Context/Context';
 
 function Header() {
+     const theme = useContext(data)
      return (
           <div className='header'>
                <div className='right-header-section'>
@@ -18,12 +20,12 @@ function Header() {
                <div className='left-header-section'>
                     <div className='search-box'>
                          <input className='search-box-input' type='text' placeholder='جستجو کنید...' />
-                         <button className='text-white search-box-btn'>جستوجو</button>
+                         <button className={`text-white ${theme.color}  search-box-btn`}>جستوجو</button>
                     </div>
-                    <button className='header-left-buttons'>
+                    <button className={`header-left-buttons ${theme.color} `}>
                          <FaRegBell />
                     </button>
-                    <button className='header-left-buttons'>
+                    <button className={`header-left-buttons ${theme.color} `}>
                          <MdBrightnessMedium />
                     </button>
                </div>

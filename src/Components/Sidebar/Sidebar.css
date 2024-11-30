@@ -26,7 +26,8 @@
      padding-bottom: 15px;
 
 }
-.sidebar-link-li:first-child{
+
+.sidebar-link-li:first-child {
      margin-bottom: 15px;
 }
 
@@ -38,27 +39,4 @@
 
 .active {
      background-color: inherit;
-}
-
-
-
-
-.red {
-     background-color: rgb(238, 45, 45);
-    
-}
-
-.blue {
-     background-color: var(--blue);
-     
-}
-
-.gray {
-     background-color: gray;
-    
-}
-
-.green {
-     background-color: rgb(5, 120, 5);
-    
 }

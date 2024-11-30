@@ -1,58 +1,65 @@
-.header{
+.header {
      display: flex;
      justify-content: space-between;
      align-items: center;
      margin-bottom: 80px;
 }
-.right-header-section{
+
+.right-header-section {
      display: flex;
      align-items: center;
 }
-.right-header-section-profile-image{
+
+.right-header-section-profile-image {
      margin-left: 20px;
      width: 60px;
      border-radius: 50%;
 }
-.right-header-name{
+
+.right-header-name {
      font-size: large;
      font-weight: 800;
 }
-.right-header-sub{
+
+.right-header-sub {
      margin-top: 10px;
-     color:#858585;
+     color: #858585;
 }
-.left-header-section{
+
+.left-header-section {
      display: flex;
      align-items: center;
      justify-content: space-evenly;
 }
-.search-box{
+
+.search-box {
      box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
      border-radius: 10px;
      display: flex;
      align-items: center;
      height: 35px;
-     background-color:white ;
+     background-color: white;
 }
-.search-box-input{
+
+.search-box-input {
      box-sizing: border-box;
      border: none;
      outline: none;
      padding-right: 10px;
 
 }
-.search-box-btn{
-     padding-inline:10px;
+
+.search-box-btn {
+     padding-inline: 10px;
      height: 100%;
      border: none;
      border-radius: 10px;
-     background-color: var(--blue)!important;
 }
-.header-left-buttons{
+
+.header-left-buttons {
      box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
      color: var(--white);
      border: none;
-     background-color: var(--blue);
      width: 35px;
      height: 35px;
      border-radius: 10px;
